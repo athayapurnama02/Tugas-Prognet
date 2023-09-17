@@ -45,7 +45,7 @@ form {
 	}
 	input[type='email'], input[type="text"], input[type="number"], input[type="url"], input[type="search"], input[type="password"] {
 		display: block; margin: 0; padding: 0 1em 0; padding: .875em 1em 0;
-		background-color: $inputBG; border: solid 2px $darkBlue; border-radius: 4px; -webkit-appearance: none;
+		background-color: $inputBG; border: solid 2px $darkBlue; border-radius: 4px; appearance: none;
 		box-sizing: border-box;
 		width: 100%; height: 65px;
 		font-size: 1.55em; color: #353538; font-weight: 600; font-family: inherit;
