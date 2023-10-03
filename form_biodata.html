@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
+    <title>Form Biodata</title>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <a href="personal_web.html">>> Back to Home <<</a>
+        </div>
+    <h1>Form Biodata</h1>
+    <form id="biodataForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required><br>
+
+        <label for="umur">Umur:</label>
+        <input type="number" id="umur" name="umur" min="0" required><br>
+
+        <label for="jk">Jenis Kelamin:</label>
+        <label for="pria">Pria</label>
+        <input type="radio" id="jk" name="jk" value="Pria" required>
+        <label for="wanita">Wanita</label>
+        <input type="radio" id="jk" name="jk" value="Wanita" required>
+        <br>
+
+        <label for="tanggal">Tanggal Lahir:</label>
+        <input type="date" id="tanggal" name="tanggal" required><br>
+
+        <label for="alamat">Alamat:</label>
+        <textarea id="alamat" name="alamat" rows="4" required></textarea><br>
+
+        <label for="pendidikan">Pendidikan Terakhir:</label>
+        <select id="pendidikan" name="pendidikan" required>
+            <option value="SD">SD</option>
+            <option value="SMP">SMP</option>
+            <option value="SMA/SMK">SMA/SMK</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Sarjana">Sarjana</option>
+            <option value="Pascasarjana">Pascasarjana</option>
+        </select><br>
+
+        <label for="hobi">Hobi:</label>
+        <label for="membaca">Membaca</label>
+        <input type="checkbox" id="hobi" name="hobi" value="Membaca">
+        <label for="olahraga">Olahraga</label>
+        <input type="checkbox" id="hobi" name="hobi" value="Olahraga">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="telepon">Telepon:</label>
+        <input type="tel" id="telepon" name="telepon" pattern="[0-9]{10,12}" required><br>
+
+        <label for="waktu Tidur">Waktu Senggang:</label>
+        <input type="time" id="waktu" name="waktu" required><br>
+
+        <label for="warna">Warna Favorit:</label>
+        <input type="color" id="warna" name="warna" required><br>
+
+        <label for="nilai">Nilai (0-100):</label>
+        <input type="range" id="nilai" name="nilai" min="0" max="100" required><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="script.js"></script>
+    </div>
+</body>
+</html>
