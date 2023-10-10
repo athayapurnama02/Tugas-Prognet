@@ -1,5 +1,5 @@
 document.getElementById("biodataForm").addEventListener("submit", function(event) {
-    
+    event.preventDefault();
 
     // Validasi form sebelum mengirim
     if (validateForm()) {
