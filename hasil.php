@@ -29,21 +29,22 @@
             $warna = $_POST["warna"];
             $nilai = $_POST["nilai"];
 
-            // Menampilkan data yang diterima dari form dalam tabel
+            // Menampilkan data dalam tabel
             echo '<table>';
-            echo '<tr><td>Nama:</td><td>' . $nama . '</td></tr>';
-            echo '<tr><td>Umur:</td><td>' . $umur . ' tahun</td></tr>';
-            echo '<tr><td>Jenis Kelamin:</td><td>' . $jk . '</td></tr>';
-            echo '<tr><td>Tanggal Lahir:</td><td>' . $tanggal . '</td></tr>';
-            echo '<tr><td>Alamat:</td><td>' . $alamat . '</td></tr>';
-            echo '<tr><td>Pendidikan Terakhir:</td><td>' . $pendidikan . '</td></tr>';
-            echo '<tr><td>Hobi:</td><td>' . $hobi . '</td></tr>';
-            echo '<tr><td>Email:</td><td>' . $email . '</td></tr>';
-            echo '<tr><td>Password:</td><td>**** (tidak ditampilkan)</td></tr>';
-            echo '<tr><td>Telepon:</td><td>' . $telepon . '</td></tr>';
-            echo '<tr><td>Waktu Senggang:</td><td>' . $waktu . '</td></tr>';
-            echo '<tr><td>Warna Favorit:</td><td>' . $warna . '</td></tr>';
-            echo '<tr><td>Nilai:</td><td>' . $nilai . '</td></tr>';
+            echo '<tr><th>Field</th><th>Value</th></tr>';
+            echo "<tr><td>Nama</td><td>$nama</td></tr>";
+            echo "<tr><td>Umur</td><td>$umur tahun</td></tr>";
+            echo "<tr><td>Jenis Kelamin</td><td>$jk</td></tr>";
+            echo "<tr><td>Tanggal Lahir</td><td>$tanggal</td></tr>";
+            echo "<tr><td>Alamat</td><td>$alamat</td></tr>";
+            echo "<tr><td>Pendidikan Terakhir</td><td>$pendidikan</td></tr>";
+            echo "<tr><td>Hobi</td><td>$hobi</td></tr>";
+            echo "<tr><td>Email</td><td>$email</td></tr>";
+            echo "<tr><td>Password</td><td>**** (tidak ditampilkan)</td></tr>";
+            echo "<tr><td>Telepon</td><td>$telepon</td></tr>";
+            echo "<tr><td>Waktu Senggang</td><td>$waktu</td></tr>";
+            echo "<tr><td>Warna Favorit</td><td><div class='color-box' style='background-color: $warna;'></div></td></tr>";
+            echo "<tr><td>Nilai</td><td>$nilai</td></tr>";
             echo '</table>';
         }
         ?>
