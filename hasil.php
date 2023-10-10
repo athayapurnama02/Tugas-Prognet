@@ -9,7 +9,7 @@
 <body>
     <h1>Hasil Biodata</h1>
     <?php
-    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Mengambil data yang dikirimkan melalui form
         $nama = $_POST["nama"];
         $umur = $_POST["umur"];
@@ -39,7 +39,7 @@
         echo "<p>Waktu Senggang: $waktu</p>";
         echo "<p>Warna Favorit: $warna</p>";
         echo "<p>Nilai: $nilai</p>";
-    
+    }
     ?>
 </body>
 </html>
