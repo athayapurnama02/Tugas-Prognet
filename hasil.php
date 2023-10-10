@@ -17,7 +17,11 @@
         $tanggal = $_POST["tanggal"];
         $alamat = $_POST["alamat"];
         $pendidikan = $_POST["pendidikan"];
-        $hobi = isset($_POST["hobi"]) ? implode(", ", $_POST["hobi"]) : "";
+        if(isset($_POST["hobi"])) {
+            $hobi = implode(", ", $_POST["hobi"]);
+        } else {
+            $hobi = ""; // Jika tidak ada yang terpilih, atur $hobi menjadi string kosong
+        }
         $email = $_POST["email"];
         $password = $_POST["password"];
         $telepon = $_POST["telepon"];
