@@ -24,7 +24,7 @@ var tanggal = document.getElementById("tanggal").value;
 var alamat = document.getElementById("alamat").value;
 var pendidikan = document.getElementById("pendidikan").value;
 var hobi = [];
-var hobiCheckboxes = document.querySelectorAll('input[name="hobi"]:checked');
+var hobiCheckboxes = document.querySelectorAll('input[name="hobi[]"]:checked');
 hobiCheckboxes.forEach(function(checkbox) {
     hobi.push(checkbox.value);
 });
@@ -50,5 +50,5 @@ var warna = document.getElementById("warna").value;
 var nilai = document.getElementById("nilai").value;
 
 // Jika semua validasi sukses, form akan dikirim
-return true; 
+return true;
 }
