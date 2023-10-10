@@ -7,39 +7,46 @@
     <title>Hasil Biodata</title>
 </head>
 <body>
-    <h1>Hasil Biodata</h1>
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Mengambil data yang dikirimkan melalui form
-        $nama = $_POST["nama"];
-        $umur = $_POST["umur"];
-        $jk = $_POST["jk"];
-        $tanggal = $_POST["tanggal"];
-        $alamat = $_POST["alamat"];
-        $pendidikan = $_POST["pendidikan"];
-        $hobi = isset($_POST["hobi"]) && is_array($_POST["hobi"]) ? implode(", ", $_POST["hobi"]) : "";
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $telepon = $_POST["telepon"];
-        $waktu = $_POST["waktu"];
-        $warna = $_POST["warna"];
-        $nilai = $_POST["nilai"];
+    <div class="container">
+        <div class="topbar">
+            <a href="form_biodata.html">>> Back to Form <<</a>
+        </div>
+        <h1>Hasil Biodata</h1>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Mengambil data yang dikirimkan melalui form
+            $nama = $_POST["nama"];
+            $umur = $_POST["umur"];
+            $jk = $_POST["jk"];
+            $tanggal = $_POST["tanggal"];
+            $alamat = $_POST["alamat"];
+            $pendidikan = $_POST["pendidikan"];
+            $hobi = isset($_POST["hobi"]) && is_array($_POST["hobi"]) ? implode(", ", $_POST["hobi"]) : "";
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            $telepon = $_POST["telepon"];
+            $waktu = $_POST["waktu"];
+            $warna = $_POST["warna"];
+            $nilai = $_POST["nilai"];
 
-        // Menampilkan data yang diterima dari form
-        echo "<p>Nama: $nama</p>";
-        echo "<p>Umur: $umur tahun</p>";
-        echo "<p>Jenis Kelamin: $jk</p>";
-        echo "<p>Tanggal Lahir: $tanggal</p>";
-        echo "<p>Alamat: $alamat</p>";
-        echo "<p>Pendidikan Terakhir: $pendidikan</p>";
-        echo "<p>Hobi: $hobi</p>";
-        echo "<p>Email: $email</p>";
-        echo "<p>Password: **** (tidak ditampilkan)</p>";
-        echo "<p>Telepon: $telepon</p>";
-        echo "<p>Waktu Senggang: $waktu</p>";
-        echo "<p>Warna Favorit: $warna</p>";
-        echo "<p>Nilai: $nilai</p>";
-    }
-    ?>
+            // Menampilkan data yang diterima dari form dalam tabel
+            echo '<table>';
+            echo '<tr><td>Nama:</td><td>' . $nama . '</td></tr>';
+            echo '<tr><td>Umur:</td><td>' . $umur . ' tahun</td></tr>';
+            echo '<tr><td>Jenis Kelamin:</td><td>' . $jk . '</td></tr>';
+            echo '<tr><td>Tanggal Lahir:</td><td>' . $tanggal . '</td></tr>';
+            echo '<tr><td>Alamat:</td><td>' . $alamat . '</td></tr>';
+            echo '<tr><td>Pendidikan Terakhir:</td><td>' . $pendidikan . '</td></tr>';
+            echo '<tr><td>Hobi:</td><td>' . $hobi . '</td></tr>';
+            echo '<tr><td>Email:</td><td>' . $email . '</td></tr>';
+            echo '<tr><td>Password:</td><td>**** (tidak ditampilkan)</td></tr>';
+            echo '<tr><td>Telepon:</td><td>' . $telepon . '</td></tr>';
+            echo '<tr><td>Waktu Senggang:</td><td>' . $waktu . '</td></tr>';
+            echo '<tr><td>Warna Favorit:</td><td>' . $warna . '</td></tr>';
+            echo '<tr><td>Nilai:</td><td>' . $nilai . '</td></tr>';
+            echo '</table>';
+        }
+        ?>
+    </div>
 </body>
 </html>
