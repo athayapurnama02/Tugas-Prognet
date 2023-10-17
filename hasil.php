@@ -19,7 +19,7 @@
 
         include 'koneksi.php';
 
-        if (isset($_POST['insert'])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nim = $_POST["nim"];
             $nama = $_POST["nama"];
             $umur = $_POST["umur"];
