@@ -17,6 +17,7 @@
         include 'koneksi.php';
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nim = $_POST["nim"];
             $nama = $_POST["nama"];
             $umur = $_POST["umur"];
             $jk = $_POST["jk"];
@@ -32,7 +33,7 @@
             $nilai = $_POST["nilai"];
 
             $sql = "INSERT INTO tb_biodata (nama, umur, jk, tanggal, alamat, pendidikan, hobi, email, password, telepon, waktu, warna, nilai) 
-                    VALUES ('$nama', '$umur', '$jk', '$tanggal', '$alamat', '$pendidikan', '$hobi', '$email', '$password', '$telepon', '$waktu', '$warna', '$nilai')";
+                    VALUES ('$nim', '$nama', '$umur', '$jk', '$tanggal', '$alamat', '$pendidikan', '$hobi', '$email', '$password', '$telepon', '$waktu', '$warna', '$nilai')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "Data telah berhasil dimasukkan ke dalam database.";
@@ -41,17 +42,17 @@
             }
         }
 
-        $sql = "SELECT nama, umur FROM tb_biodata";
+        $sql = "SELECT nim, nama FROM tb_biodata";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             echo '<table>';
-            echo '<tr><th>Nama</th><th>Umur</th><th>Action</th></tr>';
+            echo '<tr><th>NIM</th><th>Nama</th><th>Action</th></tr>';
             while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>{$row['nama']}</td><td>{$row['umur']}</td>";
-                echo "<td><a href='detail.php?id={$row['id']}'>Detail</a> | ";
-                echo "<a href='edit.php?id={$row['id']}'>Edit</a> | ";
-                echo "<a href='delete.php?id={$row['id']}'>Delete</a></td></tr>";
+                echo "<tr><td>{$row['nim']}</td><td>{$row['nama']}</td>";
+                echo "<td><a href='detail.php?id={$row['nim']}'>Detail</a> | ";
+                echo "<a href='edit.php?id={$row['nim']}'>Edit</a> | ";
+                echo "<a href='delete.php?id={$row['nim']}'>Delete</a></td></tr>";
             }
             echo '</table>';
         } else {
