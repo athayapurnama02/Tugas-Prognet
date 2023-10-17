@@ -15,7 +15,7 @@
 
         <?php
         error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+        ini_set('display_errors', 1);
 
         include 'koneksi.php';
 
@@ -23,20 +23,12 @@
             $nim = $_POST["nim"];
             $nama = $_POST["nama"];
             $umur = $_POST["umur"];
-            $jk = $_POST["jk"];
             $tanggal = $_POST["tanggal"];
             $alamat = $_POST["alamat"];
-            $pendidikan = $_POST["pendidikan"];
-            $hobi = isset($_POST["hobi"]) && is_array($_POST["hobi"]) ? implode(", ", $_POST["hobi"]) : "";
-            $email = $_POST["email"];
-            $password = $_POST["password"];
             $telepon = $_POST["telepon"];
-            $waktu = $_POST["waktu"];
-            $warna = $_POST["warna"];
-            $nilai = $_POST["nilai"];
 
-            $sql = "INSERT INTO tb_biodata (nim, nama, umur, jk, tanggal, alamat, pendidikan, hobi, email, password, telepon, waktu, warna, nilai) 
-                    VALUES ('$nim', '$nama', '$umur', '$jk', '$tanggal', '$alamat', '$pendidikan', '$hobi', '$email', '$password', '$telepon', '$waktu', '$warna', '$nilai')";
+            $sql = "INSERT INTO tb_biodata (nim, nama, umur, tanggal, alamat, telepon) 
+                    VALUES ('$nim', '$nama', '$umur', '$tanggal', '$alamat', '$telepon')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "Data telah berhasil dimasukkan ke dalam database.";
