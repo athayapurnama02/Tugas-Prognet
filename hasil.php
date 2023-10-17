@@ -24,7 +24,7 @@
             $tanggal = $_POST["tanggal"];
             $alamat = $_POST["alamat"];
             $pendidikan = $_POST["pendidikan"];
-            $hobi = $_POST["hobi[]"];
+            $hobi = isset($_POST["hobi"]) && is_array($_POST["hobi"]) ? implode(", ", $_POST["hobi"]) : "";
             $email = $_POST["email"];
             $password = $_POST["password"];
             $telepon = $_POST["telepon"];
