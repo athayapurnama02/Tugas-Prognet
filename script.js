@@ -11,6 +11,8 @@ document.getElementById("biodataForm").addEventListener("submit", function(event
 
 function validateForm(){
 // Mengambil nilai dari setiap elemen form dengan validasi
+var nim = document.getElementById("nim").value;
+
 // validasi kolom nama (hanya huruf)
 var nama = document.getElementById("nama").value;
 if (!/^[A-Za-z\s]+$/.test(nama)) {
@@ -50,5 +52,5 @@ var warna = document.getElementById("warna").value;
 var nilai = document.getElementById("nilai").value;
 
 // Jika semua validasi sukses, form akan dikirim
-return true;
+return true; 
 }
