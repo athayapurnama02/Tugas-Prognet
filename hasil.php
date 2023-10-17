@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles2.css">
-    <title>List of Biodata</title>
+    <title>Hasil Biodata</title>
 </head>
 <body>
     <div class="container">
         <div class="topbar">
             <a href="form_biodata.html">>> Back to Form <<</a>
         </div>
-        <h1>List of Biodata</h1>
-
+        <h1>Hasil Biodata</h1>
         <?php
-        include 'koneksi.php';
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Mengambil data yang dikirimkan melalui form
             $nim = $_POST["nim"];
             $nama = $_POST["nama"];
             $umur = $_POST["umur"];
@@ -32,34 +30,25 @@
             $warna = $_POST["warna"];
             $nilai = $_POST["nilai"];
 
-            $sql = "INSERT INTO tb_biodata (nama, umur, jk, tanggal, alamat, pendidikan, hobi, email, password, telepon, waktu, warna, nilai) 
-                    VALUES ('$nim', '$nama', '$umur', '$jk', '$tanggal', '$alamat', '$pendidikan', '$hobi', '$email', '$password', '$telepon', '$waktu', '$warna', '$nilai')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "Data telah berhasil dimasukkan ke dalam database.";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-        }
-
-        $sql = "SELECT nim, nama FROM tb_biodata";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
+            // Menampilkan data dalam tabel
             echo '<table>';
-            echo '<tr><th>NIM</th><th>Nama</th><th>Action</th></tr>';
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>{$row['nim']}</td><td>{$row['nama']}</td>";
-                echo "<td><a href='detail.php?id={$row['nim']}'>Detail</a> | ";
-                echo "<a href='edit.php?id={$row['nim']}'>Edit</a> | ";
-                echo "<a href='delete.php?id={$row['nim']}'>Delete</a></td></tr>";
-            }
+            echo '<tr><th>Field</th><th>Value</th></tr>';
+            echo "<tr><td>NIM</td><td>$nim</td></tr>";
+            echo "<tr><td>Nama</td><td>$nama</td></tr>";
+            echo "<tr><td>Umur</td><td>$umur tahun</td></tr>";
+            echo "<tr><td>Jenis Kelamin</td><td>$jk</td></tr>";
+            echo "<tr><td>Tanggal Lahir</td><td>$tanggal</td></tr>";
+            echo "<tr><td>Alamat</td><td>$alamat</td></tr>";
+            echo "<tr><td>Pendidikan Terakhir</td><td>$pendidikan</td></tr>";
+            echo "<tr><td>Hobi</td><td>$hobi</td></tr>";
+            echo "<tr><td>Email</td><td>$email</td></tr>";
+            echo "<tr><td>Password</td><td>**** (tidak ditampilkan)</td></tr>";
+            echo "<tr><td>Telepon</td><td>$telepon</td></tr>";
+            echo "<tr><td>Waktu Senggang</td><td>$waktu</td></tr>";
+            echo "<tr><td>Warna Favorit</td><td><div class='color-box' style='background-color: $warna;'></div></td></tr>";
+            echo "<tr><td>Nilai</td><td>$nilai</td></tr>";
             echo '</table>';
-        } else {
-            echo "No data available.";
         }
-
-        $conn->close();
         ?>
     </div>
 </body>
