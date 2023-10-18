@@ -62,26 +62,42 @@
             <a href="form_biodata.html">>> Back to Form <<</a>
         </div>
         <h1>List of Biodata</h1>
-
+        <table>
+        <thead>
+            <tr>
+            <th scope="col">NIM</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
         <?php
         $q_select = "SELECT * FROM tb_biodata";
         $result = mysqli_query($conn, $q_select);
 
-        if ($result->num_rows > 0) {
-            echo '<table>';
-            echo '<tr><th>NIM</th><th>Nama</th><th>Action</th></tr>';
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>{$row['nim']}</td><td>{$row['nama']}</td>";
-                echo "<td><a href='detail.php?id={$row['nim']}'>Detail</a> | ";
-                echo "<a href='edit.php?id={$row['nim']}'>Edit</a> | ";
-                echo "<a href='delete.php?id={$row['nim']}'>Delete</a></td></tr>";
-            }
-            echo '</table>';
-        } else {
-            echo "No data available.";
+        foreach ($result as $data) {
+            ?>
+            <tr>
+                <th scope="row">
+                    <?php echo $data['nim'] ?>
+                </th>
+                <td>
+                    <?php echo $data['nama'] ?>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" name="input" data-bs-toggle="modal"
+                        data-bs-target="#detailModal<?php echo $data['nim'] ?>">Details</button>
+                    <button type="button" class="btn btn-warning" name="input" data-bs-toggle="modal"
+                        data-bs-target="#editModal<?php echo $data['nim'] ?>">Edit</button>
+                    <button type="button" class="btn btn-danger" name="input" data-bs-toggle="modal"
+                        data-bs-target="#hapusModal<?php echo $data['nim'] ?>">Delete</button>
+                </td>
+            </tr>
+            <?php
         }
-
         ?>
+        </tbody>
+        </table>
     </div>
 </body>
 </html>
