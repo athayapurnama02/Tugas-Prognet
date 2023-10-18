@@ -1,14 +1,3 @@
-document.getElementById("biodataForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    // Validasi form sebelum mengirim
-    if (validateForm()) {
-        this.submit();
-    } else {
-        alert("Mohon isi semua field yang diperlukan dengan benar.");
-    }
-});
-
 function validateForm(){
 // Mengambil nilai dari setiap elemen form dengan validasi
 var nim = document.getElementById("nim").value;
