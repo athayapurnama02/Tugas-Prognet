@@ -81,7 +81,6 @@
             echo "No data available.";
         }
 
-        $conn->close();
         ?>
     </div>
 </body>
