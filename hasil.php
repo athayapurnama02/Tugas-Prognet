@@ -60,6 +60,7 @@
     <div class="container">
         <div class="topbar">
             <a href="form_biodata.html">>> Back to Form <<</a>
+            <a href="index.html">>> Back to Home <<</a>
         </div>
         <h1>List of Biodata</h1>
         <table>
