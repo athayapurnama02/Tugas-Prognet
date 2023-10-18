@@ -1,3 +1,53 @@
+<?php
+        include 'koneksi.php';
+
+        if (isset($_POST['submit'])) {
+            $nim = $_POST['nim'];
+            $nama = $_POST['nama'];
+            $umur = $_POST['umur'];
+            $tanggal = $_POST['tanggal'];
+            $alamat = $_POST['alamat'];
+            $telepon = $_POST['telepon'];
+
+            $q_input = "INSERT INTO tb_biodata (nim, nama, umur, tanggal, alamat, telepon) 
+                    VALUES ('$nim', '$nama', '$umur', '$tanggal', '$alamat', '$telepon')";
+
+            $sql = mysqli_query($conn, $q_input);
+
+            if (!$sql) {
+                echo "<script type='text/javascript'>alert('Data gagal disimpan!');</script>" . mysqli_error($conn);
+            }
+        }
+
+        if (isset($_POST['edit'])) {
+            $nim = $_POST['nim'];
+            $nama = $_POST['nama'];
+            $umur = $_POST['umur'];
+            $tanggal = $_POST['tanggal'];
+            $alamat = $_POST['alamat'];
+            $telepon = $_POST['telepon'];
+
+            $q_edit = "UPDATE tb_biodata SET nama = '$nama', umur = '$umur', tanggal = '$tanggal', alamat = '$alamat', telepon='$telepon' WHERE nim = '$nim'";
+
+            $sql = mysqli_query($conn, $q_edit);
+
+            if (!$sql) {
+                echo "<script type='text/javascript'>alert('Data gagal disimpan!');</script>" . mysqli_error($conn);
+            }
+        }
+
+        if (isset($_POST['hapus'])) {
+            $nim = $_POST['nim'];
+
+            $q_hapus = "DELETE FROM tb_biodata WHERE nim = '$nim'";
+            
+            $sql = mysqli_query($conn, $q_hapus);
+            if (!$sql) {
+                echo "<script type='text/javascript'>alert('Data gagal dihapus!');</script>" . mysqli_error($conn);
+            }
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,38 +64,17 @@
         <h1>List of Biodata</h1>
 
         <?php
-        
-        include 'koneksi.php';
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $nim = $_POST["nim"];
-            $nama = $_POST["nama"];
-            $umur = $_POST["umur"];
-            $tanggal = $_POST["tanggal"];
-            $alamat = $_POST["alamat"];
-            $telepon = $_POST["telepon"];
-
-            $sql = "INSERT INTO tb_biodata (nim, nama, umur, tanggal, alamat, telepon) 
-                    VALUES ('$nim', '$nama', '$umur', '$tanggal', '$alamat', '$telepon')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "Data telah berhasil dimasukkan ke dalam database.";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-        }
-
-        $sql = "SELECT nim, nama FROM tb_biodata";
-        $result = $conn->query($sql);
+        $q_select = "SELECT * FROM tb_biodata";
+        $result = mysqli_query($conn, $q_select);
 
         if ($result->num_rows > 0) {
             echo '<table>';
             echo '<tr><th>NIM</th><th>Nama</th><th>Action</th></tr>';
             while ($row = $result->fetch_assoc()) {
                 echo "<tr><td>{$row['nim']}</td><td>{$row['nama']}</td>";
-                echo "<td><a href='detail.php?id={$row['id']}'>Detail</a> | ";
-                echo "<a href='edit.php?id={$row['id']}'>Edit</a> | ";
-                echo "<a href='delete.php?id={$row['id']}'>Delete</a></td></tr>";
+                echo "<td><a href='detail.php?id={$row['nim']}'>Detail</a> | ";
+                echo "<a href='edit.php?id={$row['nim']}'>Edit</a> | ";
+                echo "<a href='delete.php?id={$row['nim']}'>Delete</a></td></tr>";
             }
             echo '</table>';
         } else {
