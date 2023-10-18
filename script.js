@@ -23,7 +23,7 @@ var namaRegex = /^[a-zA-Z\s]+$/;
             }
 
             if (tanggal.trim() === "") {
-                alert("Alamat harus diisi.");
+                alert("Tanggal harus diisi.");
                 return false;
             }
 
