@@ -1,25 +1,41 @@
 function validateForm(){
-// Mengambil nilai dari setiap elemen form dengan validasi
 var nim = document.getElementById("nim").value;
-
-// validasi kolom nama (hanya huruf)
 var nama = document.getElementById("nama").value;
-if (!/^[A-Za-z\s]+$/.test(nama)) {
-    alert('Kolom Nama hanya bisa menginput huruf.');
-    return false;
-}
-
 var umur = document.getElementById("umur").value;
 var tanggal = document.getElementById("tanggal").value;
 var alamat = document.getElementById("alamat").value;
-
-// validasi kolom no telepon (hanya angka)
 var telepon = document.getElementById("telepon").value;
-if (!/^\d+$/.test(telepon)) {
-    alert('Kolom No Telepon hanya bisa menginput angka.');
+
+if (nim.length !== 10 || isNaN(nim)) {
+    alert("NIM harus terdiri dari 10 digit angka.");
     return false;
 }
 
-// Jika semua validasi sukses, form akan dikirim
+var namaRegex = /^[a-zA-Z\s]+$/;
+            if (!nama.match(namaRegex)) {
+                alert("Nama hanya boleh berisi huruf dan spasi.");
+                return false;
+            }
+
+            if (isNaN(umur)) {
+                alert("Umur hanya angka");
+                return false;
+            }
+
+            if (tanggal.trim() === "") {
+                alert("Alamat harus diisi.");
+                return false;
+            }
+
+            if (alamat.trim() === "") {
+                alert("Alamat harus diisi.");
+                return false;
+            }
+
+            if (isNaN(telepon)) {
+                alert("Nomor telepon hanya angka");
+                return false;
+            }
+
 return true; 
 }
