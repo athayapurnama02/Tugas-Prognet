@@ -9,10 +9,12 @@
 <body>
     <div class="container">
         <div class="topbar">
-            <a href="/">>> Back to Home <<</a>
+            <a href="/">>> Back to Homepage <<</a>
+            <a href="/biodata">>> Back to BiodataList <<</a>
         </div>
     <h1>Form Biodata</h1>
-    <form id="biodataForm" onsubmit="return validateForm()" action="hasil_biodata" method="get">
+    <form id="biodataForm" onsubmit="return validateForm()" action="/biodata" method="post">
+        @csrf
         <label for="nim">NIM:</label>
         <input type="text" id="nim" name="nim" required><br>
 

@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <div class="topbar">
-            <a href="form_biodata">>> Tugas Javascript <<</a>
+            <a href="/biodata">>> Tugas Laravel <<</a>
         </div>
         <div class="row">
             <div class="col-md-4 mt-1">
