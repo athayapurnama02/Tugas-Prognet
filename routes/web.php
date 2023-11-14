@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FormController;
+use App\Http\Controllers\BiodataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FormController::class, 'index']);
-Route::get('form_biodata', [FormController::class, 'create']);
-Route::get('hasil_biodata', [FormController::class, 'show']);
+Route::get('/', function(){
+    return view('homepage');
+});
+Route::resource('/biodata',BiodataController::class);

@@ -51,6 +51,7 @@ table {
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
+    table-layout: auto;
 }
 
 table, th, td {
@@ -59,7 +60,8 @@ table, th, td {
 
 th, td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
+    border: 1px solid #ddd;
 }
 
 th {
@@ -67,12 +69,14 @@ th {
     color: white;
 }
 
+
+
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
 tr:hover {
-    background-color: #ddd;
+    background-color: #f0f0f0;
 }
 
 .color-box {
@@ -81,6 +85,11 @@ tr:hover {
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px;
+}
+
+.center-button {
+    text-align: center;
+    margin-top: 20px;
 }
 
 input[type="text"],
